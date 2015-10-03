@@ -1,0 +1,25 @@
+{
+    "name":         "alcalyn/docrine-user-api",
+    "license":      "MIT",
+    "type":         "library",
+    "description":  "User Api",
+    "homepage":     "https://github.com/alcalyn/doctrine-user-api",
+    "keywords":     ["user-management", "doctrine"],
+    "authors": [
+        {
+            "name": "Julien Maulny",
+            "email": "doubjulien@hotmail.fr"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3",
+        "doctrine/orm": "~2.1",
+        "alcalyn/user-api": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alcalyn\\DoctrineUserApi\\": ""
+        }
+    }
+}
