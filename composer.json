@@ -1,5 +1,5 @@
 {
-    "name":         "alcalyn/docrine-user-api",
+    "name":         "alcalyn/doctrine-user-api",
     "license":      "MIT",
     "type":         "library",
     "description":  "User Api",
