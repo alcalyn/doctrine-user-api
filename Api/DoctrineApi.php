@@ -2,9 +2,11 @@
 
 namespace Alcalyn\DoctrineUserApi\Api;
 
+use Doctrine\DBAL\DBALException;
 use Alcalyn\UserApi\Api\ApiInterface;
 use Alcalyn\UserApi\Exception\NotImplementedException;
 use Alcalyn\UserApi\Exception\UserNotFoundException;
+use Alcalyn\UserApi\Exception\UserAlreadyExistsException;
 use Alcalyn\UserApi\Model\User;
 use Alcalyn\UserApi\Service\UserManager;
 use Alcalyn\DoctrineUserApi\Repository\UserRepository;
@@ -38,7 +40,11 @@ class DoctrineApi implements ApiInterface
     {
         $user = $this->userManager->createUser($username, $password);
 
-        $this->userRepository->saveUser($user);
+        try {
+            $this->userRepository->saveUser($user);
+        } catch (DBALException $e) {
+            throw new UserAlreadyExistsException($username);
+        }
 
         return $user;
     }
